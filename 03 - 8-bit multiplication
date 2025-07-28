@@ -1,0 +1,15 @@
+LDA 8051      ; Load multiplier into A
+MOV B, A       ; Move multiplier to register B
+
+LDA 8050      ; Load multiplicand into A
+MOV C, A       ; Move multiplicand to register C
+
+MVI A, 00H     ; Clear accumulator (to store result)
+
+LOOP: ADD C    ; Add multiplicand to accumulator
+DCR B          ; Decrement multiplier
+JNZ LOOP       ; Repeat if B ≠ 0
+
+STA 8052
+
+HLT            ; Halt

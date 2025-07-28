@@ -1,0 +1,15 @@
+LHLD 8050
+SPHL
+LHLD 8052
+XCHG
+repeat: DAD SP
+JNC skip
+INX B
+
+skip: DCX D
+MOV A,E
+ORA D
+
+JNZ repeat
+HLT
+
